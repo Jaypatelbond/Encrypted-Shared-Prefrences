@@ -13,18 +13,19 @@ class MainActivity : AppCompatActivity() {
 
     @Inject lateinit var preference: Preference
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         writeSharedPreferences(this)
 
+        // Using encrypted preferences
         preference.setUserId("12345")
         preference.setLogin(false)
 
     }
 
+    // Just using default Shared Preferences API without any encryption
     private fun writeSharedPreferences(context: Context) {
         // Initializing SharedPreferences object with name "my_preferences"
         val sharedPreferences = context.getSharedPreferences("my_preferences", MODE_PRIVATE)
